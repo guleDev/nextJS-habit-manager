@@ -2881,7 +2881,7 @@ __metadata:
     "@vercel/kv": ^2.0.0
     eslint: ^8
     eslint-config-next: 14.2.3
-    next: 14.2.3
+    next: ^14.2.3
     postcss: ^8
     react: ^18
     react-dom: ^18
@@ -3944,7 +3944,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next@npm:14.2.3":
+"next@npm:^14.2.3":
   version: 14.2.3
   resolution: "next@npm:14.2.3"
   dependencies:
