@@ -12,10 +12,10 @@ export default function DayState({ day }: { day: boolean | undefined }) {
       image = ["/images/gray-mark.svg", "gray mark", 12];
       break;
     case true:
-      image = ["/images/green-mark.svg", "green mark", 24];
+      image = ["/images/green-mark.svg", "green mark", 12];
       break;
     case false:
-      image = ["/images/red-mark.svg", "red mark", 24];
+      image = ["/images/red-mark.svg", "red mark", 12];
       break;
   }
 
