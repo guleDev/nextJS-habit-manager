@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ArrowIcon(props: React.SVGProps<SVGElement>) {
+export default function ArrowIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="24"
