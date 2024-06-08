@@ -27,43 +27,43 @@ export default async function Home() {
     .reverse();
 
   return (
-    <main className="container relative flex flex-col gap-8 px-4 pt-16">
-      {habits == null ||
-        (Object.keys(habits).length == 0 && (
-          <h1 className="mt-20 text-4xl font-light text-white font-display text-center">
-            Você não tem hábitos cadastrados
-          </h1>
-        ))}
-      {habits !== null &&
-        Object.entries(habits).map(([habit, habitStreak]) => (
-          <div key={habit} className="flex flex-col gap-2">
-            <div className="flex justify-between items-center">
-              <span className="text-xl font-light text-white font-sans">
-                {habit}
-              </span>
-              <DeleteButton habit={habit}/>
+    <main className="container relative flex flex-col pt-16 sm:w-full md:w-9/12 lg:w-3/12 h-svh">
+      <section className="overflow-y-scroll h-5/6 gap-8 px-4">
+        {" "}
+        {habits == null ||
+          (Object.keys(habits).length == 0 && (
+            <h1 className="mt-20 text-4xl font-light text-white font-display text-center">
+              Você não tem hábitos cadastrados
+            </h1>
+          ))}
+        {habits !== null &&
+          Object.entries(habits).map(([habit, habitStreak]) => (
+            <div key={habit} className="flex flex-col gap-2 my-4">
+              <div className="flex justify-between items-center">
+                <span className="text-xl font-light text-white font-sans">
+                  {habit}
+                </span>
+                <DeleteButton habit={habit} />
+              </div>
+              <Link href={`habito/${encodeURIComponent(habit)}`}>
+                <section className="grid grid-cols-7 bg-neutral-800 rounded-md p-2">
+                  {sortedWeekDays.map((day, index) => (
+                    <div key={day} className="flex flex-col last:font-bold">
+                      <span className="font-sans text-xs text-white text-center">
+                        {day}
+                      </span>
+                      {/*day state*/}
+                      <DayState day={habitStreak[last7Days[index]]} />
+                    </div>
+                  ))}
+                </section>
+              </Link>
             </div>
-            <Link href={`habito/${encodeURIComponent(habit)}`}>
-              <section className="grid grid-cols-7 bg-neutral-800 rounded-md p-2">
-                {sortedWeekDays.map((day, index) => (
-                  <div key={day} className="flex flex-col last:font-bold">
-                    <span className="font-sans text-xs text-white text-center">
-                      {day}
-                    </span>
-                    {/*day state*/}
-                    <DayState day={habitStreak[last7Days[index]]} />
-                  </div>
-                ))}
-              </section>
-            </Link>
-          </div>
-        ))}
-      <Link
-        href="novo-habito"
-        className="fixed text-center bottom-10 w-2/3 left-1/2 -translate-x-1/2 text-neutral-900 bg-primary-green font-display font-regular text-2xl p-2 rounded-md"
-      >
-        novo hábito
-      </Link>
+          ))}
+      </section>
+      <footer className="flex justify-center my-8">
+        <Link className="w-9/12 text-center text-neutral-900 bg-primary-green font-display font-regular text-2xl p-3 rounded-md" href="novo-habito">novo hábito</Link>
+      </footer>
     </main>
   );
 }

@@ -15,7 +15,7 @@ export default async function Habit({
   );
 
   return (
-    <main className="container relative flex flex-col gap-8 px-12 pt-16">
+    <main className="container relative flex flex-col gap-8 px-12 pt-16 w-3/12">
       <h1 className="text-4xl font-light text-center text-white font-display">
         {decodedhabit}
       </h1>
